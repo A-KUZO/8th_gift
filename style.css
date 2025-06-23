@@ -30,7 +30,7 @@ body {
 
 h1 {
   font-size: 2em;
-  color: #3d5e44;
+  color: #335039;
   margin-bottom: 10px;
 }
 
@@ -165,14 +165,14 @@ body {
 .main_p {
   font-size: 1em;
   margin-bottom: 20px;
-  color: #3d5e44;
+  color: #304d36;
 }
 
 .button-row {
   display: flex;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
+  
   margin-top: 30px;
 }
 
@@ -182,7 +182,7 @@ body {
   align-items: center;
   gap: 8px;
   padding: 10px;
-  width: 110px;
+  width: 90px;
   font-size: 1em;
   font-weight: bold;
   background-color: #537D5D;
@@ -195,8 +195,8 @@ body {
 }
 
 .custom-button img {
-  max-width: 105px;
-  max-height: 105px;
+  max-width: 80px;
+  max-height: 80px;
   object-fit: contain;
 }
 
@@ -216,15 +216,13 @@ body {
 }
 
 .side-layout img {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   object-fit: contain;
 }
 
-
-
 .wide-button {
-  width: calc(160px * 3 + 40px); 
+  width: calc(85px * 3 + 40px); 
 }
 
 
