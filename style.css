@@ -293,7 +293,7 @@ body {
 
 .modal-content {
   background: white;
-  padding: 30px;
+  padding: 15px;
   max-width: 90%;
   max-height: 80%;
   overflow-y: auto;
@@ -328,13 +328,13 @@ body {
 .photo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 6px;
   justify-items: center;
   align-items: center;
 }
 
 .photo img {
-  width: 125px;
+  width: 100px;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
