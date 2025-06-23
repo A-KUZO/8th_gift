@@ -30,14 +30,14 @@ body {
 
 h1 {
   font-size: 2em;
-  color: #3f72af;
+  color: #3d5e44;
   margin-bottom: 10px;
 }
 
 p {
   font-size: 1em;
   margin-bottom: 20px;
-  color: #333;
+  color: #3d5e44;
 }
 
 input[type="date"] {
@@ -45,7 +45,7 @@ input[type="date"] {
     padding: 10px;
     width: 100%;
     font-size: 1em;
-    border: 1px solid #ccc;
+    border: 1px solid #3d5e44;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -54,7 +54,7 @@ button {
   padding: 10px;
   width: 100%;
   font-size: 1em;
-  background-color: #3f72af;
+  background-color: #537D5D;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -63,7 +63,7 @@ button {
 }
 
 button:hover {
-  background-color: #365f91;
+  background-color: #537D5D;
 }
 
 #message {
@@ -127,7 +127,7 @@ button:hover {
 /* MAIN STYLES */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #f9f7f7, #dbe2ef);
+  background: #73946B;
   height: 100vh;
   min-width: 116px;
   display: flex;
@@ -152,7 +152,7 @@ body {
 }
 
 .main_container {
-  background-color: #ffffff;
+  background-color: #9EBC8A;
   padding: 30px 25px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -165,23 +165,66 @@ body {
 .main_p {
   font-size: 1em;
   margin-bottom: 20px;
-  color: #333;
+  color: #3d5e44;
 }
 
-button {
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  margin-top: 30px;
+}
+
+.custom-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   padding: 10px;
-  width: 100%;
+  width: 110px;
   font-size: 1em;
-  background-color: #3f72af;
-  color: #fff;
+  font-weight: bold;
+  background-color: #537D5D;
+  color: #D2D0A0;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  text-align: center;
 }
 
-button:hover {
-  background-color: #365f91;
+.custom-button img {
+  max-width: 105px;
+  max-height: 105px;
+  object-fit: contain;
+}
+
+.bottom-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.side-layout {
+    max-height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: center; 
+  gap: 12px;
+  padding: 12px 20px;
+}
+
+.side-layout img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+
+
+.wide-button {
+  width: calc(160px * 3 + 40px); 
 }
 
 
