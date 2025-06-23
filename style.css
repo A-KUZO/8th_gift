@@ -275,11 +275,10 @@ body {
 }
 
 .letter-container::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 .letter-container::-webkit-scrollbar-thumb {
-  background-color: #d8d8d8;
-  border-radius: 10px;
+  width: 0px;
 }
 
 .modal {
