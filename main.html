@@ -23,7 +23,7 @@
 
         <button class="custom-button" id="openBooth">
             <img src="images/camera.png">
-            <span>Photo Booth</span>
+            <span>Photo Album</span>
         </button>
 
         <button class="custom-button" id="openMix">
@@ -40,80 +40,68 @@
     </div>
   </div>
 
-  <!-- Modals -->
-<div id="modalLetter" class="modal">
-  <div class="modal-content">
-    <span hidden class="close">&times;</span>
-    <div class="letter-container">
-    <p>To my wife, my home,</p>
-    <p>Eight months. It's a short time in the grand scheme of life, but with you, it feels like I've already lived a whole story. One filled with quiet mornings, soft laughs, late-night talks, and small, beautiful moments that mean everything to me now.</p>
-    <p>I still don't know what I did to deserve someone like you, but I'm endlessly grateful that the universe placed you in my life. Out of everyone, in all the possible timelines, I found you. And more importantly, you exist. That alone is something I thank the stars for every day.</p>
-    <p>There are songs that remind me of you. Not because of the lyrics alone, but because of the feeling they carry. Soft, sure, and full of love. That's what being with you feels like. Like a song I never want to end.</p>
-    <p>You've become my home in the truest sense. Not just a place to rest, but a person who makes me feel safe, seen, and loved. You've taught me that love can be quiet and steady and still mean everything.</p>
-    <p>Thank you for being patient with me. For loving me when I'm not at my best. For choosing me every day. Being with you has changed the way I see love, and I wouldn't trade this journey with you for anything.</p>
-    <p>Eight months with you feels like a gift I get to unwrap a little more each day. And if this is only the beginning, then I can't wait for everything still to come.</p>
-    <p>I love you more than words can ever say.</p>
-    <p class="signature">Your wife</p>
-  </div>
-  </div>
-</div>
-
-<div id="modalBooth" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>This is your photo booth 📸</p>
-  </div>
-</div>
-
-<div id="modalMix" class="modal">
-  <div class="modal-content">
-    <span hidden class="close">&times;</span>
-    <p>This is a mixtape of 8 songs - one for each of the 8 months we shared, each holding a piece of how I felt about you.</p>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2dCDItceMQS8JOYxyChpx9?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</div>
-
-<div id="modalFun" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>This is something fun 🎉</p>
-  </div>
-</div>
-
-
-
+<div id="modalContainer" class="modal" style="display: none;"></div>
 </body>
 
 </html>
 
 <script>
-  // Modal pairs: button id -> modal id
-  const modalMap = {
-    openLetter: 'modalLetter',
-    openBooth: 'modalBooth',
-    openMix: 'modalMix',
-    openFun: 'modalFun'
+const modalContainer = document.getElementById('modalContainer');
+
+const modalMap = {
+  openLetter: 'modals/modal-letter.html',
+  openBooth: 'modals/modal-booth.html',
+  openMix: 'modals/modal-mix.html',
+  openFun: 'modals/modal-fun.html'
+};
+
+Object.keys(modalMap).forEach(buttonId => {
+  const btn = document.getElementById(buttonId);
+  btn.addEventListener('click', async () => {
+    try {
+      const response = await fetch(modalMap[buttonId]);
+      const html = await response.text();
+      modalContainer.innerHTML = html;
+      modalContainer.style.display = 'flex';
+
+      const closeBtn = modalContainer.querySelector('.close');
+      closeBtn.addEventListener('click', () => {
+        modalContainer.style.display = 'none';
+        modalContainer.innerHTML = '';
+      });
+
+      modalContainer.addEventListener('click', (e) => {
+        if (e.target === modalContainer) {
+          modalContainer.style.display = 'none';
+          modalContainer.innerHTML = '';
+        }
+      });
+
+    } catch (err) {
+      console.error("Failed to load modal:", err);
+    }
+  });
+});
+</script>
+
+<script>
+  const slides = {
+    photo1: ['booth/photo1.jpg', 'booth/photo2.jpg', 'booth/photo3.jpg', 'booth/photo4.jpg'],
+    photo2: ['booth/photo5.jpg', 'booth/photo6.jpg', 'booth/photo7.jpg', 'booth/photo8.jpg'],
+    photo3: ['booth/photo9.jpg', 'booth/photo10.jpg', 'booth/photo11.jpg', 'booth/photo12.jpg'],
+    photo4: ['booth/photo13.jpg', 'booth/photo14.jpg', 'booth/photo15.jpg', 'booth/photo16.jpg']
   };
 
-  Object.keys(modalMap).forEach(buttonId => {
-    const btn = document.getElementById(buttonId);
-    const modal = document.getElementById(modalMap[buttonId]);
+  let currentIndex = 0;
 
-    // Open modal
-    btn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
+  function switchImage() {
+    currentIndex = (currentIndex + 1) % slides.photo1.length;
 
-    // Close when clicking the X
-    modal.querySelector('.close').addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
+    document.getElementById("photo1").src = slides.photo1[currentIndex];
+    document.getElementById("photo2").src = slides.photo2[currentIndex];
+    document.getElementById("photo3").src = slides.photo3[currentIndex];
+    document.getElementById("photo4").src = slides.photo4[currentIndex];
+  }
 
-    // Close when clicking outside modal content
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
-  });
+  setInterval(switchImage, 3000);
 </script>
