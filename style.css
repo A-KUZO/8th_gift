@@ -334,7 +334,7 @@ body {
 }
 
 .photo img {
-  width: 160px;
+  width: 125px;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
