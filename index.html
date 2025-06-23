@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penelope</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hey there, wife!</h1>
+    <p>To unlock this page, try entering the day we became official.</p>
+
+    <form id="dateForm">
+      <input type="date" id="eventDate" name="eventDate" required>
+      <button type="submit">Submit</button>
+      <p id="message"></p>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  document.getElementById("dateForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const dateInput = document.getElementById("eventDate").value;
+    const correctDate = "2024-10-26";
+    const message = document.getElementById("message");
+
+    const errorMessages = [
+      "You don't remember?",
+      "Try again, wife.",
+      "That’s not it 🥺",
+      "Think harder, wife!",
+      "Wrong... 💔",
+      "Come on, it was special!",
+      "You're getting colder...",
+      "Oof, not that one!",
+      "Hmm... really?"
+    ];
+
+    if (dateInput === correctDate) {
+      window.location.href = "one_more.html";
+    } else {
+      const randomIndex = Math.floor(Math.random() * errorMessages.length);
+      message.textContent = errorMessages[randomIndex];
+    }
+  });
+</script>
