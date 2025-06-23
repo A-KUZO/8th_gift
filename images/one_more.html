@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Love Me?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>NICEEE!</h1>
+    <p>You got the day right! One more thing... Do you love me?</p>
+
+    <div class="button-group">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <div id="response" style="display: none; margin-top: 20px;">
+      <img src="images/under_construction.png" alt="Sad" class="responsive-img">
+      <p style="color: crimson; font-weight: bold; margin-top: 10px;">Well, this won't hold up. Time to demolish it. Guess you're stuck with me!</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("yesBtn").addEventListener("click", function () {
+      window.location.href = "main.html";
+    });
+
+    document.getElementById("noBtn").addEventListener("click", function () {
+        document.getElementById("response").style.display = "block";
+          this.disabled = true;
+          this.textContent = "FOR DEMOLITION";
+          this.classList.add("disabled-button")
+    });
+  </script>
+</body>
+</html>
