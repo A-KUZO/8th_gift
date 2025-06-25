@@ -36,8 +36,8 @@
             <button class="custom-button wide-button side-layout" id="openFun">
             <img src="images/puzzle.png" alt="">
             <span>Something Fun</span>
-        </button>
-    </div>
+            </button>
+        </div>
   </div>
 
 <div id="modalContainer" class="modal" style="display: none;"></div>
@@ -70,21 +70,14 @@ Object.keys(modalMap).forEach(buttonId => {
         modalContainer.innerHTML = '';
       });
 
-      modalContainer.addEventListener('click', (e) => {
-        if (e.target === modalContainer) {
-          modalContainer.style.display = 'none';
-          modalContainer.innerHTML = '';
-        }
-      });
+
 
     } catch (err) {
       console.error("Failed to load modal:", err);
     }
   });
 });
-</script>
 
-<script>
   const slides = {
     photo1: ['booth/photo1.jpg', 'booth/photo2.jpg', 'booth/photo3.jpg', 'booth/photo4.jpg'],
     photo2: ['booth/photo5.jpg', 'booth/photo6.jpg', 'booth/photo7.jpg', 'booth/photo8.jpg'],
@@ -104,4 +97,44 @@ Object.keys(modalMap).forEach(buttonId => {
   }
 
   setInterval(switchImage, 3000);
+
+  const answers = {
+    "1-Q": "Q",
+    "6-R1": "R", "6-O": "O", "6-K": "K", "6-A": "A", "6-R2": "R", "1-U": "U",
+    "1-A1": "A",
+    "1-N": "N",
+    "1-T1": "T",
+    "8-E": "E", "8-A": "A", "8-R1": "R", "8-R2": "R", "1-I1": "I", "8-N": "N", "8-G": "G", "8-S": "S",
+    "1-T2": "T",
+    "2-C": "C", "1-A2": "A",
+    "2-U": "U", "1-T3": "T",
+    "2-P": "P", "3-T1": "T", "3-I": "I", "3-K1": "K", "3-T2": "T", "3-O": "O", "3-K2": "K",
+    "2-Z": "Z", "1-V": "V",
+    "4-K": "K", "4-O": "O", "4-Z": "Z", "4-E1": "E", "4-C": "C", "4-A": "A", "4-F": "F", "4-E2": "E", "7-W": "W",
+    "2-F": "F", "1-M": "M", "7-I": "I",
+    "2-J": "J", "1-E1": "E", "7-F": "F",
+    "5-O1": "O", "5-C": "C", "5-T": "T", "5-O2": "O", "5-B": "B", "5-E": "E", "5-R" : "R",
+    "1-H": "H",
+    "1-O": "O",
+    "1-D": "D",
+    "1-S": "S",
+  };
+
+  function checkAnswers() {
+    for (const id in answers) {
+      const input = document.getElementById(id);
+      const userLetter = input.value.toUpperCase();
+      const correctLetter = answers[id];
+
+      if (userLetter === correctLetter) {
+        input.style.backgroundColor = "#c8f7c5";
+      }
+      else if (userLetter=== "") {
+        input.style.backgroundColor = "white";
+      }
+       else {
+        input.style.backgroundColor = "#f7c5c5";
+      }
+    }
+  }
 </script>
